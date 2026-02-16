@@ -69,31 +69,6 @@ async function fetchPokemon() {
             displayMoves(data);
         }
 
-        //old info displaying
-        // const height = document.getElementById("pokemon-height");
-        // const weight = document.getElementById("pokemon-weight");
-        // const hp = document.getElementById("pokemon-hp");
-        // const attack = document.getElementById("pokemon-attack");
-        // const defense = document.getElementById("pokemon-defense");
-        // const spatk = document.getElementById("pokemon-spatk");
-        // const spdf = document.getElementById("pokemon-spdf");
-        // const speed = document.getElementById("pokemon-speed");
-
-        // const heightInMeters = (data.height / 10).toFixed(2);
-        // height.textContent = `height: ${heightInMeters}m`;
-        
-        // const weightInKg = (data.weight / 10).toFixed(2);
-        // weight.textContent = `weight: ${weightInKg}kg`;
-
-        // hp.textContent = `hp: ${data.stats[0].base_stat}`;
-        // attack.textContent = `attack: ${data.stats[1].base_stat}`;
-        // defense.textContent = `defense: ${data.stats[2].base_stat}`;
-        // spatk.textContent = `special-attack: ${data.stats[3].base_stat}`;
-        // spdf.textContent = `special-defense: ${data.stats[4].base_stat}`;
-        // speed.textContent = `speed: ${data.stats[5].base_stat}`;
-
-        //moves 
-
     } catch (error) {
         console.error(error);
     }
