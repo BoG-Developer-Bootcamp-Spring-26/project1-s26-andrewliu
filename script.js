@@ -1,5 +1,4 @@
-const pokemonId = 1;
-const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+let pokemonId = 1;
 const typeColors = {
     normal: "#A8A77A",
     fire: "#EE8130",
@@ -22,6 +21,8 @@ const typeColors = {
 }
 
 async function fetchPokemon() {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -57,6 +58,25 @@ async function fetchPokemon() {
         })
 
         //info
+        const height = document.getElementById("pokemon-height");
+        const weight = document.getElementById("pokemon-weight");
+        const hp = document.getElementById("pokemon-hp");
+        const attack = document.getElementById("pokemon-attack");
+        const defense = document.getElementById("pokemon-defense");
+        const spatk = document.getElementById("pokemon-spatk");
+        const spdf = document.getElementById("pokemon-spdf");
+        const speed = document.getElementById("pokemon-speed");
+
+        height.textContent = `height: ${data.height}`;
+        weight.textContent = `weight: ${data.weight}`;
+        hp.textContent = `hp: ${data.stats[0].base_stat}`;
+        attack.textContent = `attack: ${data.stats[1].base_stat}`;
+        defense.textContent = `defense: ${data.stats[2].base_stat}`;
+        spatk.textContent = `spatk: ${data.stats[3].base_stat}`;
+        spdf.textContent = `spdf: ${data.stats[4].base_stat}`;
+        speed.textContent = `speed: ${data.stats[5].base_stat}`;
+
+        //moves 
 
         const infoText = document.getElementById("info-text");
         infoText.innerText = JSON.stringify(data);
@@ -66,6 +86,20 @@ async function fetchPokemon() {
 }
 
 fetchPokemon();
+
+const leftButton = document.getElementById("left-button");
+const rightButton = document.getElementById("right-button");
+
+leftButton.addEventListener("click", async (event) => {
+    pokemonId--;
+    fetchPokemon();
+})
+
+rightButton.addEventListener("click", async (event) => {
+    pokemonId++;
+    fetchPokemon();
+})
+
 
 // const button = document.createElement("button");
 // button.textContent = "click to fetch";
