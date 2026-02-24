@@ -118,13 +118,17 @@ const leftButton = document.getElementById("left-button");
 const rightButton = document.getElementById("right-button");
 
 leftButton.addEventListener("click", async (event) => {
-    pokemonId--;
-    fetchPokemon();
+    if (pokemonId > 1) {
+        pokemonId--;
+        fetchPokemon();
+    }
 })
 
 rightButton.addEventListener("click", async (event) => {
-    pokemonId++;
-    fetchPokemon();
+    if (pokemonId < 1025) {
+        pokemonId++;
+        fetchPokemon();
+    }
 })
 
 //info and moves buttons
